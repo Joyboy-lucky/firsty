@@ -1,50 +1,125 @@
-<h1> GUESS THE number bro!!! its from 0 to 10 only you got 4 chances you DUMBASS</h1>
-<h1> I Hope you won't get negative score  <img src="gvm1.jpg" width="50px" height="50px"> </h1> 
-<input id="guessnumber" type="number">
-<button onclick="check()">check</button>
-<p id="result">let's see what you've Got</p>
-<p id="score">score:4</p>
-<P id="message"></P>
-<div id="image-container"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-<script>
+    .container {
+      max-width: 400px;
+      width: 90%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 60%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #444;
+    }
+
+    #image-container {
+      margin-top: 15px;
+    }
+
+    #image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GUESS THE number bro!!! It's from 0 to 10 only. You got 4 chances you DUMBASS</h1>
+    <h1>I Hope you won't get negative score  
+      <img src="gvm1.jpg" width="50" height="50">
+    </h1> 
+    <input id="guessnumber" type="number">
+    <button onclick="check()">Check</button>
+    <p id="result">Let's see what you've got</p>
+    <p id="score">Score: 4</p>
+    <p id="message"></p>
+    <div id="image-container"></div>
+  </div>
+
+  <script>
     var guessnumber = document.getElementById("guessnumber")
-    var result=document.getElementById("result")
-    var score=document.getElementById("score")
-    var message=document.getElementById("message")
-    var randomnuber= Math.floor(Math.random()*10)+1
+    var result = document.getElementById("result")
+    var score = document.getElementById("score")
+    var message = document.getElementById("message")
+    var randomnumber = Math.floor(Math.random() * 10) + 1
     const img1 = document.createElement("img")
     const img2 = document.createElement("img")
-    img1.src="dala1.jpg"
-    img1.alt="its bcz you loose"
-    img1.width=300
-    img1.height=350
-    img2.src="dala2.jpg"
-    img2.alt="you won mameee"
-    img2.width=500
-    img2.height=550
-    var finalscore=4
-    function check()
-    {
-        var enterednumber=guessnumber.value
-        document.getElementById("image-container").innerHTML = "";
-        if(randomnuber==enterednumber)
-    {
-        result.textContent="correct buddy !!!"
+    img1.src = "dala1.jpg"
+    img1.alt = "you lose"
+    img1.width = 300
+    img1.height = 350
+    img2.src = "dala2.jpg"
+    img2.alt = "you won mameee"
+    img2.width = 500
+    img2.height = 550
+    var finalscore = 4
+
+    function check() {
+      var enterednumber = Number(guessnumber.value)
+      document.getElementById("image-container").innerHTML = ""
+      if (enterednumber === randomnumber) {
+        result.textContent = "Correct buddy !!!"
         alert("YOU WON .....super mameeee indha gift from dala ")
-        message.textContent="congragulations mameeee  .....  from tholar dala"
+        message.textContent = "Congragulations mameeee ..... from tholar dala"
         document.getElementById("image-container").appendChild(img2)
-        
-
+      } else {
+        finalscore -= 1
+        result.textContent = "ITS WRONG YOU DUMBASS"
+        score.textContent = "Score: " + finalscore
+        message.textContent = "You're WRONG SO DALA LAUGHS AT YOU"
+        document.getElementById("image-container").appendChild(img1)
+      }
     }
-        else
-        {
-            finalscore=finalscore-1
-            result.textContent="ITS WRONG YOU DUMBASS"
-            score.textContent="score:"+finalscore
-            message.textContent="you're WRONG SO DALA LAUGHS AT YOU"
-            document.getElementById("image-container").appendChild(img1)
-
-        }
-    }
-</script>
+  </script>
+</body>
+</html>
