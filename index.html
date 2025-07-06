@@ -95,7 +95,7 @@
     var randomnumber = Math.floor(Math.random() * 10) + 1
     const img1 = document.createElement("img")
     const img2 = document.createElement("img")
-    img1.src = "dala1.jpg"
+    img1.src = "cat-meme-laughing.png"
     img1.alt = "you lose"
     img1.width = 300
     img1.height = 350
@@ -103,21 +103,21 @@
     img2.alt = "you won mameee"
     img2.width = 500
     img2.height = 550
-    var finalscore = 4
+    var finalscore = 0
 
     function check() {
       var enterednumber = Number(guessnumber.value)
       document.getElementById("image-container").innerHTML = ""
       if (enterednumber === randomnumber) {
         result.textContent = "Correct buddy !!!"
-        alert("YOU WON .....super mameeee indha gift from dala ")
-        message.textContent = "Congragulations mameeee ..... from tholar dala"
+        alert("YOU WON .....super Mate you deserve a Thumps Up")
+        message.textContent = "Congragulations Friend   ..... "
         document.getElementById("image-container").appendChild(img2)
       } else {
         finalscore += 1
-        result.textContent = "ITS WRONG YOU DUMBASS"
+        result.textContent = "ITS WRONG Mate"
         score.textContent = "Score: " + finalscore
-        message.textContent = "You're WRONG SO DALA LAUGHS AT YOU"
+        message.textContent = "You're WRONG SO Mighgy Cat  LAUGHS AT YOU"
         document.getElementById("image-container").appendChild(img1)
       }
     }
