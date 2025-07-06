@@ -74,14 +74,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>GUESS THE number bro!!! It's from 0 to 10 only. You got 4 chances you DUMBASS</h1>
+    <h1>GUESS THE number bro!!! It's from 0 to 10 only. You got N number of chances</h1>
     <h1>I Hope you won't get negative score  
       <img src="gvm1.jpg" width="50" height="50">
+        The initial score will be 0 whenever you guess wrong it will be inceased with 1. try to get less score 
     </h1> 
     <input id="guessnumber" type="number">
     <button onclick="check()">Check</button>
     <p id="result">Let's see what you've got</p>
-    <p id="score">Score: 4</p>
+    <p id="score">Score: 0</p>
     <p id="message"></p>
     <div id="image-container"></div>
   </div>
@@ -113,7 +114,7 @@
         message.textContent = "Congragulations mameeee ..... from tholar dala"
         document.getElementById("image-container").appendChild(img2)
       } else {
-        finalscore -= 1
+        finalscore += 1
         result.textContent = "ITS WRONG YOU DUMBASS"
         score.textContent = "Score: " + finalscore
         message.textContent = "You're WRONG SO DALA LAUGHS AT YOU"
